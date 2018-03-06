@@ -114,8 +114,7 @@
                         ExampleFour: "project-management",
                         ExampleFive: ""
                     }
-                ],
-                displayDataObjectProperties: true
+                ]
             }, options),
             displayElementPos = document.getElementById(settings.displayElement.substring(1)).getBoundingClientRect(),
             calculatePosition = function (isHeightPos) {
