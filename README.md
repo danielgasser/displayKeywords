@@ -19,154 +19,124 @@ jQuery('selector').displayKeywords({
 
 ### Options:
 
-`displayElement: (string)` 
-The element, selector where the keywords are displayed.
-
-Default: `'#text_container'`
+- `displayElement: (string)`
+The element, selector where the keywords are displayed.<br>Default: `'#text_container'`
     
-`displayElementHeight: (int)`
-The `displayElement`'s height in the unit defined in `displayElementHeightUnit`.
+- `displayElementHeight: (int)`
+The `displayElement`'s height in the unit defined in `displayElementHeightUnit`.<br>Default: `400`
 
-Default: `400`
-
-`displayElementHeightUnit: (string)`
- The Unit in which `displayElementHeight` is calculated.
+- `displayElementHeightUnit: (string)`
+ The Unit in which `displayElementHeight` is calculated.<br>Default: `"px"`
  
- Default: `"px"`
- 
-`displayElementWidth: (string)`
-The `displayElement`'s width in the unit defined in `displayElementHeightUnit`.
-
-Default: `'100%'`
+- `displayElementWidth: (string)`
+The `displayElement`'s width in the unit defined in `displayElementHeightUnit`.<br>Default: `'100%'`
                 
-`fontSizeFactor: (float)`
-The font size depending on a random number and the `displayElementHeight`
+- `fontSizeFactor: (float)`
+The font size depending on a random number and the `displayElementHeight`<br>Default: `0.005`
 
-Default: `0.005`
+- `positionFactor: (float)`
+The position fo a keyword depending on a random number and the `displayElement`'s `scrollWidth()`.<br>Default: `2`
 
-`positionFactor: (float)`
-The position fo a keyword depending on a random number and the `displayElement`'s `scrollWidth()`.
-
-Default: `2`
-
-`fontColors: (Array of strings)`
-
-Default: `["#ff9900", "#000000", "#cccccc"]`
+- `fontColors: (Array of strings)`<br>Default: `["#ff9900", "#000000", "#cccccc"]`
                 
-`wordMinSize: (integer)`
-The number of character a keyword must have to be taken.
+- `wordMinSize: (integer)`
+The number of character a keyword must have to be taken.<br>Default: `3`
 
-Default: `3`
+- `fontFamily: (string)`<br>Default: `"Verdana, sans-serif"`
 
-`fontFamily: (string)`
+- `filterWords: (Array of strings)`
+Words that are filtered (blacklisted).<br>Default:<br>
+```
+    [
+      "I",
+      "You",
+      "He",
+      "She",
+      "It",
+      "We",
+      "You",
+      "They",
+      "Me",
+      "You",
+      "Him",
+      "Her",
+      "It",
+      "Us",
+      "You",
+      "Them",
+      "My",
+      "Your",
+      "His",
+      "Her",
+      "Its",
+      "Our",
+      "Your",
+      "Their",
+      "This",
+      "That",
+      "These",
+      "Those",
+      "Mine",
+      "Yours",
+      "His",
+      "Hers",
+      "Ours",
+      "Yours",
+      "Theirs"
+    ]
+```
 
-Default: `"Verdana, sans-serif"`
+- `onlyCapitalWords: (boolean)`
+Words that starts with an uppercase character.<br>Default: `true`
 
-`filterWords: (Array of strings)`
-Words that are filtered (blacklisted).
-
-Default: `[
-              "I",
-              "You",
-              "He",
-              "She",
-              "It",
-              "We",
-              "You",
-              "They",
-              "Me",
-              "You",
-              "Him",
-              "Her",
-              "It",
-              "Us",
-              "You",
-              "Them",
-              "My",
-              "Your",
-              "His",
-              "Her",
-              "Its",
-              "Our",
-              "Your",
-              "Their",
-              "This",
-              "That",
-              "These",
-              "Those",
-              "Mine",
-              "Yours",
-              "His",
-              "Hers",
-              "Ours",
-              "Yours",
-              "Theirs"
-          ]`
-
-`onlyCapitalWords: (boolean)`
-Words that starts with an uppercase character.
- 
-Default: `true`
-
-`dataOrigin: (string)`
+- `dataOrigin: (string)`
 Where's the words coming from. Possible options are:
-- `"DOM"`: The Words from the initial selecotr are taken.
-- `"JSON"`: A JSON string is taken from an URL defined under `dataUrl`.
-- `"OBJECT"`: A JavaScript object is taken defined under `dataObject`.
+    - `"DOM"`: The Words from the initial selecotr are taken.
+    - `"JSON"`: A JSON string is taken from an URL defined under `dataUrl`.
+    - `"OBJECT"`: A JavaScript object is taken defined under `dataObject`.<br>
 
-Default: `"DOM"`
+     Default: `"DOM"`
                 
-`dataUrl: (string)`
-Necessary when using `dataOrigin: "JSON"`. An URL leading to a server-side script, which returns a JSON-string. See `/php/data.php`.
+- `dataUrl: (string)`
+Necessary when using `dataOrigin: "JSON"`. An URL leading to a server-side script, which returns a JSON-string. See `/php/data.php`.<br>Default: `"js/jQueryDisplayKeywords/php/data.php"`
 
-Default: `"js/jQueryDisplayKeywords/php/data.php"`
+- `dataParams: (Array of objects)`
+Optional when using `dataOrigin: "JSON"`. Ajax parameters to be sent along.<br>Default: `[{}]` (empty Array of objects)
 
-`dataParams: (Array of objects)`
-Optional when using `dataOrigin: "JSON"`. Ajax parameters to be sent along.
-
-Default: `[{}]` (empty Array of objects)
-
-`excludedClassNames: (Array of strings)`
- CSS classes to be ignored when using `dataOrigin: "DOM"`.
-  
- Default: `[]`
+- `excludedClassNames: (Array of strings)`
+CSS classes to be ignored when using `dataOrigin: "DOM"`.<br>Default: `[]`
  
-`excludedIDNames: (Array of strings)`
- CSS id's to be ignored when using `dataOrigin: "DOM"`.
-  
- Default: `[]`
+- `excludedIDNames: (Array of strings)`
+CSS id's to be ignored when using `dataOrigin: "DOM"`.<br>Default: `[]`
  
- `excludedTagNames:  (Array of strings)`
- HTML tags to be ignored when using `dataOrigin: "DOM"`.
+- `excludedTagNames:  (Array of strings)`
+HTML tags to be ignored when using `dataOrigin: "DOM"`.<br>Default: `["pre"]`
 
-Default: `["pre"]`
-
-`dataObject: (Array of strings)`
-Javascript objects to be used when using `dataOrigin: "OBJECT"`.
-
-Default: 
+- `dataObject: (Array of strings)`
+Javascript objects to be used when using `dataOrigin: "OBJECT"`.<br>Default: 
 
 ```
-[     
-    {
-        ExampleOne: "Beautiful",
-        ExampleTwo: "Web-based",
-        ExampleThree: "user-interfaces",
-        ExampleFour: "with",
-        ExampleFive: "HTML5/JavaScript"
-    },
-    {
-        ExampleOne: "Maintenance",
-        ExampleTwo: "documentation",
-        ExampleThree: "instruction",
-        ExampleFour: "",
-        ExampleFive: ""
-    },
-    {
-        ExampleOne: "Maintenance",
-        ExampleTwo: "documentation",
-        ExampleThree: "help-files",
-        ExampleFour: "project-management",
-        ExampleFive: ""
-    }
-]```
+    [     
+        {
+            ExampleOne: "Beautiful",
+            ExampleTwo: "Web-based",
+            ExampleThree: "user-interfaces",
+            ExampleFour: "with",
+            ExampleFive: "HTML5/JavaScript"
+        },
+        {
+            ExampleOne: "Maintenance",
+            ExampleTwo: "documentation",
+            ExampleThree: "instruction",
+            ExampleFour: "",
+            ExampleFive: ""
+        },
+        {
+            ExampleOne: "Maintenance",
+            ExampleTwo: "documentation",
+            ExampleThree: "help-files",
+            ExampleFour: "project-management",
+            ExampleFive: ""
+        }
+    ]
+```
